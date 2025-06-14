@@ -52,11 +52,13 @@ func (i *Iterable[T]) Unique() *Iterable[T] {
 	for _, item := range i.collection {
 		if !seen[item] {
 			seen[item] = true
+
 			result = append(result, item)
 		}
 	}
 
 	i.collection = result
+
 	return i
 }
 
