@@ -1,0 +1,9 @@
+[tools]
+go = "1.24"
+golangci-lint = "2.1.6"
+
+[settings]
+experimental = true
+
+[alias]
+golangci-lint = "go:github.com/golangci/golangci-lint/v2/cmd/golangci-lint"

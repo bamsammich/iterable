@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      MISE_EXPERIMENTAL: "1"
+      MISE_JOBS: "4"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up mise
+        uses: jdx/mise-action@v2
+
+      - name: Lint
+        run: golangci-lint run --timeout=5m
+
+      - name: Test
+        run: go test -v -race -count=1 ./...

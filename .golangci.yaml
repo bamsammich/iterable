@@ -1,0 +1,13 @@
+version: "2"
+linters:
+  default: "all"
+  disable:
+    - depguard
+    - testpackage
+    - paralleltest
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - goimports
+    - golines
